@@ -13,7 +13,7 @@ export class Bootcamp {
     }
 
     register(kelas, newStud) {
-        let newClass = this.classes.filter((objkelas) => kelas === objkelas.name)
+        let newClass = this.classes.find((objkelas) => kelas === objkelas.name)
         newClass.addStudents(newStud)
     }
 

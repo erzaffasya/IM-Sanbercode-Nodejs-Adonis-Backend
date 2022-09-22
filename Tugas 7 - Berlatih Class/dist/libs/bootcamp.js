@@ -32,7 +32,7 @@ var Bootcamp = /*#__PURE__*/function () {
   }, {
     key: "register",
     value: function register(kelas, newStud) {
-      var newClass = this.classes.filter(function (objkelas) {
+      var newClass = this.classes.find(function (objkelas) {
         return kelas === objkelas.name;
       });
       newClass.addStudents(newStud);

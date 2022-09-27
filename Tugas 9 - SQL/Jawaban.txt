@@ -24,26 +24,22 @@ CREATE TABLE items(
 );
 
 3.
-INSERT INTO users (name, email, password) VALUES ("John Doe", "john@doe.com", "john123");
-INSERT INTO users (name, email, password) VALUES ("Jane Doe", "jane@doe.com", "jenita123");
+INSERT INTO customers (name, email, password) VALUES ("John Doe", "john@doe.com", "john123");
+INSERT INTO customers (name, email, password) VALUES ("Jane Doe", "jane@doe.com", "jenita123");
 
-INSERT INTO categories (name) VALUES ("gadget");
-INSERT INTO categories (name) VALUES ("cloth");
-INSERT INTO categories (name) VALUES ("men");
-INSERT INTO categories (name) VALUES ("women");
-INSERT INTO categories (name) VALUES ("branded");
-
-INSERT INTO items (name, description, price, stock, category_id) VALUES ("Sumsang b50", "hape keren dari merek sumsang", 4000000, 100, 1);
-INSERT INTO items (name, description, price, stock, category_id) VALUES ("Uniklooh", "baju keren dari brand ternama", 500000, 50, 2);
-INSERT INTO items (name, description, price, stock, category_id) VALUES ("IMHO Watch", "jam tangan anak yang jujur banget", 2000000, 10, 1);
+INSERT INTO orders (amount, customer_id) VALUES (500, 1);
+INSERT INTO orders (amount, customer_id) VALUES (200, 2);
+INSERT INTO orders (amount, customer_id) VALUES (750, 1);
+INSERT INTO orders (amount, customer_id) VALUES (250, 2);
+INSERT INTO orders (amount, customer_id) VALUES (400, 1);
 
 4.
 a. SELECT id, name, email FROM users
 b. SELECT * FROM items WHERE price > 1000000
    SELECT * FROM items WHERE name LIKE 'sang'
-c. SELECT items.name, items.description, items.price, items.stock, items.category_id, categories.name AS 'kategori'
-   FROM items
-   INNER JOIN categories ON items.category_id=categories.id;
+c. SELECT customers.name, orders.amount categories.name AS 'kategori'
+   FROM customers
+   INNER JOIN categories ON customers.id=orders.customer_id;
 
 5.UPDATE items
   SET price = 2500000
